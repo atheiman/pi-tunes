@@ -1,0 +1,17 @@
+{
+  "name": "PiTunes",
+  "version": "0.0.1",
+  "homepage": "https://github.com/atheiman/pi-tunes",
+  "authors": [
+    "Austin Heiman <atheimanksu@gmail.com>"
+  ],
+  "description": "Internet radio AngularJS app designed for small touchscreens with no keyboard interface, like a Raspberry Pi.",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.4.x",
+    "jquery": "2.1.x",
+    "bootstrap": "3.3.x",
+    "angular-route": "1.4.x",
+    "angular-resource": "1.4.x"
+  }
+}
