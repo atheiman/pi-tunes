@@ -11,7 +11,8 @@
     <p ng-repeat="track in tracks">
       <button ng-click="setActiveTrack(track)" class="btn btn-sm btn-primary full-width"
               ng-class="{active: track==activeTrack}">
-        {{track.artist}} - {{track.title}}
+        <span ng-if="track.artist">{{track.artist}} -</span>
+        {{track.title}}
       </button>
     </p>
   </div>
@@ -48,11 +49,12 @@
       <button class="btn btn-default col-xs-3 col-xs-offset-2 glyphicon glyphicon-pause"
               ng-click="playOrPause()" id="playPauseBtn"/>
       <button class="btn btn-default col-xs-3 col-xs-offset-2 glyphicon glyphicon-step-forward"
-              ng-click="skip(tracks, activeTrack)"/>
+              ng-click="skip()"/>
     </p>
 
     <!-- Audio without controls -->
-    <audio autoplay src="{{'local-tracks/music/' + activeTrack.audioFile}}"></audio>
+    <audio autoplay src="{{'local-tracks/music/' + activeTrack.audioFile}}"
+           onended="skip()"></audio>
   </div>
 
   <!-- Message if no active track -->
@@ -60,4 +62,5 @@
                                <!-- ng-hide="activeTrack != null" -->
     <p>Select a track from the left</p>
   </div>
+
 </div>

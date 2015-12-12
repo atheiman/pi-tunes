@@ -4,14 +4,12 @@ Internet Radio AngularJS app designed for small touchscreens with no keyboard in
 
 PiTunes is an internet radio AngularJS app. It's designed for a small touchscreen with no keyboard interface - I use an [Adafruit PiTFT 480x320 3.5" Touchscreen](https://www.adafruit.com/products/2097) hooked up to a Raspberry Pi. It plays music from a variety of sources:
 
-- [ ] Local Tracks
+- [x] Local Tracks
 - [ ] Internet Radio Streams
 - [ ] Pandora's API
 - [ ] Google Play Music API
 
-A explanation of each of the sources is below.
-
-<hr/>
+A explanation of how to get started with each of the sources is below.
 
 ## Local Tracks
 
@@ -56,6 +54,18 @@ After placing music in the local tracks directory, register the track in `tracks
   }
 ]
 ```
+
+## Internet Radio Streams
+
+In progress...
+
+## Pandora's API
+
+In progress...
+
+## Google Play Music API
+
+In progress...
 
 <hr/>
 

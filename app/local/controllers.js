@@ -54,21 +54,16 @@ angular.module('localControllers', [])
       }
     }, 200);
 
-    $scope.skip = function(tracks, activeTrack) {
+    $scope.skip = function() {
       // set activeTrack to next song in tracks
-      activeTrack = tracks[tracks.indexOf(activeTrack) + 1];
+      var index = $scope.tracks.indexOf($scope.activeTrack);
+      if (index + 1 == $scope.tracks.length)  // if last song active, skip to first
+        $scope.activeTrack = $scope.tracks[0]
+      else
+        $scope.activeTrack = $scope.tracks[index + 1];
     }
+
+    document.getElementsByTagName('audio')[0].addEventListener('ended', $scope.skip);
   }
 ])
 ;
-// .controller('LocalTrackCtrl', ['$scope', '$routeParams', 'LocalTrack',
-//   function($scope, $routeParams, LocalTrack) {
-//     $scope.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
-//       $scope.mainImageUrl = phone.images[0];
-//     });
-
-//     $scope.setImage = function(imageUrl) {
-//       $scope.mainImageUrl = imageUrl;
-//     };
-//   }
-// ]);
