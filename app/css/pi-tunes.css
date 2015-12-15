@@ -8,3 +8,8 @@ body {
 .full-width {
   width: 100%;
 }
+
+#trackCol {
+  height: 262px;
+  overflow-y: scroll;
+}
