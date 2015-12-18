@@ -1,11 +1,11 @@
-/* App Module */
-
 angular.module('piTunes', [
   'ngRoute',
 
-  'localControllers',
-  'localServices',
-  'localDirectives',
+  'player',
+  'localTracks',
+  'radioStreams',
+  'pandora',
+  'googlePlayMusic',
 ])
 
 .config(['$routeProvider',
@@ -17,15 +17,15 @@ angular.module('piTunes', [
       }).
       when('/radio-streams', {
         templateUrl: 'partials/radio-streams.html',
-        controller: 'LocalTrackCtrl'
+        controller: 'RadioStreamsCtrl'
       }).
       when('/pandora', {
         templateUrl: 'partials/pandora.html',
-        controller: 'LocalTrackCtrl'
+        controller: 'PandoraCtrl'
       }).
       when('/google-play-music', {
         templateUrl: 'partials/google-play-music.html',
-        controller: 'LocalTrackCtrl'
+        controller: 'GooglePlayMusicCtrl'
       }).
       otherwise({
         redirectTo: '/local-tracks'

@@ -1,12 +1,19 @@
-/* Controllers */
+angular.module('localTracks', ['ngResource'])
 
-angular.module('localControllers', [])
+// .constant('localTracksDir', 'local-tracks')
 
-.constant('localTracksDir', 'local-tracks')
+.factory('LocalTrack', ['$resource',
+  function($resource){
+    // this is only used to get a list of tracks from tracks.json
+    return $resource('local-tracks/:trackId.json', {}, {
+      query: {method:'GET', params:{trackId:'tracks'}, isArray:true}
+    });
+  }
+])
 
-.controller('LocalTrackCtrl', ['$scope', '$interval', 'LocalTrack', 'localTracksDir',
+.controller('LocalTrackCtrl', ['$scope', '$interval', 'LocalTrack',
   function($scope, $interval, LocalTrack) {
-    // $scope.tracks = LocalTrack.query();
+    $scope.tracks = LocalTrack.query();
     // $scope.setActiveTrack = function(track) {
     //   $scope.activeTrack = track;
     // };

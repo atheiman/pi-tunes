@@ -20,17 +20,18 @@
 
   <script src="js/pi-tunes.js"></script>
   <script src="js/player.js"></script>
-  <script src="local/controllers.js"></script>
-  <script src="local/services.js"></script>
-  <script src="local/directives.js"></script>
+  <script src="js/local-tracks.js"></script>
+  <script src="js/radio-streams.js"></script>
+  <script src="js/pandora.js"></script>
+  <script src="js/google-play-music.js"></script>
 </head>
 
 <body>
   <div class="container-fluid" id="viewContainer">
 
   <div ng-controller="SourceCtrl">
-    <select ng-model="locationPath"
-            ng-model-options="{ getterSetter: true }" class="form-control">
+    <select ng-model="locationPath" ng-model-options="{ getterSetter: true }"
+            class="form-control">
       <option ng-repeat="src in sources" value="{{src.path}}">{{src.label}}</option>
     </select>
   </div>
@@ -40,7 +41,7 @@
     <div ng-view class="col-xs-7"></div>
 
     <!-- Now playing -->
-    <div ng-include="partials/player.html" class="col-xs-5"></div>
+    <div ng-include="'partials/player.html'" class="col-xs-5"></div>
   </div>
 </body>
 </html>
