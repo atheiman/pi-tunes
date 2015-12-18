@@ -1,9 +1,9 @@
 angular.module('pandora', ['player'])
 
-.controller('PandoraCtrl', ['$scope', 'audioService',
-  function($scope, audioService) {
+.controller('PandoraCtrl', ['$scope', 'playerService',
+  function($scope, playerService) {
     $scope.callSetSrc = function(str) {
-      audioService.setSrc(str);
+      playerService.setSrc(str);
     }
   }
 ])

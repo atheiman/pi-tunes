@@ -1,6 +1,6 @@
 angular.module('player', [])
 
-.factory('audioService', function($rootScope) {
+.factory('playerService', function($rootScope) {
   // Used to share data between source controller and player controller
   src = "initial service src";
 
@@ -16,10 +16,10 @@ angular.module('player', [])
   };
 })
 
-.controller('PlayerCtrl', ['$scope', '$interval', 'audioService',
-  function($scope, $interval, audioService) {
+.controller('PlayerCtrl', ['$scope', '$interval', 'playerService',
+  function($scope, $interval, playerService) {
     $scope.$on('AUDIO_SRC_CHANGED', function(response) {
-      $scope.src = audioService.getSrc();
+      $scope.src = playerService.getSrc();
     })
 
     // $scope.setActiveTrack = function(track) {
