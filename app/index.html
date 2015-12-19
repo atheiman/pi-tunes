@@ -27,21 +27,21 @@
 </head>
 
 <body>
-  <div class="container-fluid" id="viewContainer">
+  <div class="container-fluid">
+    <div ng-controller="SourceCtrl">
+      <select ng-model="locationPath" ng-model-options="{ getterSetter: true }"
+              class="form-control">
+        <option ng-repeat="src in sources" value="{{src.path}}">{{src.label}}</option>
+      </select>
+    </div>
 
-  <div ng-controller="SourceCtrl">
-    <select ng-model="locationPath" ng-model-options="{ getterSetter: true }"
-            class="form-control">
-      <option ng-repeat="src in sources" value="{{src.path}}">{{src.label}}</option>
-    </select>
-  </div>
+    <div class="row">
+      <!-- Active source -->
+      <div ng-view class="col-xs-7 source-view"></div>
 
-  <div class="row">
-    <!-- Active source -->
-    <div ng-view class="col-xs-7"></div>
-
-    <!-- Now playing -->
-    <div ng-include="'partials/player.html'" class="col-xs-5"></div>
+      <!-- Now playing -->
+      <div ng-include="'partials/player.html'" class="col-xs-5"></div>
+    </div>
   </div>
 </body>
 </html>

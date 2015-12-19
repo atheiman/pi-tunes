@@ -1,36 +1,36 @@
-<div ng-controller="PlayerCtrl">
-  <h3>Player</h3>
-  <code>src: {{src}}</code>
+<div ng-controller="PlayerCtrl" class="text-center">
+  <!-- Track information -->
+  <p>
+    <span class="small">{{src.artist}}</span><br/>
+    <strong>{{src.name}}</strong><br/>
+    <span class="small">{{src.album}}</span>
+  </p>
+
+  <!-- Album art -->
+  <p>
+    <img class="img-responsive center-block player-image"
+         ng-src="{{src.image}}"
+         err-src="img/default-album-art.jpg">
+  </p>
+
+  <!-- Vote up or down -->
+  <p class="row">
+    <button class="btn col-xs-3 col-xs-offset-2 glyphicon glyphicon-thumbs-up"
+            ng-class="src.votedUp ? 'btn-success' : 'btn-default'"
+            ng-click="vote('up')"/>
+    <button class="btn col-xs-3 col-xs-offset-2 glyphicon glyphicon-thumbs-down"
+            ng-class="src.votedDown ? 'btn-danger' : 'btn-default'"
+            ng-click="vote('down')"/>
+  </p>
+
+  <!-- Audio controls -->
+  <p class="row">
+    <button class="btn btn-default col-xs-3 col-xs-offset-2 glyphicon glyphicon-pause"
+            ng-click="playOrPause()" id="playPauseBtn"/>
+    <button class="btn btn-default col-xs-3 col-xs-offset-2 glyphicon glyphicon-step-forward"
+            ng-click="skip()"/>
+  </p>
+
+  <audio autoplay ng-src="{{src.audio}}" onended="skip()"/>
+
 </div>
-
-<!-- Track information -->
-<!-- <p>
-  <span class="small">{{activeTrack.artist}}</span><br/>
-  <strong>{{activeTrack.title}}</strong><br/>
-  <span class="small">{{activeTrack.album}}</span>
-</p> -->
-
-<!-- Album art -->
-<!-- <p>
-  <img class="img-responsive center-block" style="max-width: 80px;"
-       ng-src="{{'local-tracks/album-art/' + activeTrack.albumArtFile}}"
-       err-src="img/default-album-art.jpg">
-</p> -->
-
-<!-- Vote up or down -->
-<!-- <p class="row">
-  <button class="btn col-xs-3 col-xs-offset-2 glyphicon glyphicon-thumbs-up"
-          ng-class="activeTrack.votedUp ? 'btn-success' : 'btn-default'"
-          ng-click="voteUp(activeTrack)"/>
-  <button class="btn col-xs-3 col-xs-offset-2 glyphicon glyphicon-thumbs-down"
-          ng-class="activeTrack.votedDown ? 'btn-danger' : 'btn-default'"
-          ng-click="voteDown(activeTrack)"/>
-</p> -->
-
-<!-- Audio controls -->
-<!-- <p class="row">
-  <button class="btn btn-default col-xs-3 col-xs-offset-2 glyphicon glyphicon-pause"
-          ng-click="playOrPause()" id="playPauseBtn"/>
-  <button class="btn btn-default col-xs-3 col-xs-offset-2 glyphicon glyphicon-step-forward"
-          ng-click="skip()"/>
-</p> -->

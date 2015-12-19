@@ -5,11 +5,27 @@ body {
   color: #fff;
 }
 
-.full-width {
-  width: 100%;
+.container-fluid {
+  padding: 5px;
+}
+.row {
+  margin-right: -5px;
+  margin-left: -5px;
 }
 
-#trackCol {
-  height: 262px;
+[ng-controller=SourceCtrl] {
+  margin-bottom: 10px;
+}
+
+.source-view {
+  height: 256px;
   overflow-y: scroll;
+}
+
+.player-image {
+  max-width: 100px;
+}
+
+.full-width {
+  width: 100%;
 }
