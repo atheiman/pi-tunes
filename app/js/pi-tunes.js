@@ -13,7 +13,7 @@ angular.module('piTunes', [
     $routeProvider.
       when('/local-tracks', {
         templateUrl: 'partials/local-tracks.html',
-        controller: 'LocalTrackCtrl'
+        controller: 'LocalTracksCtrl'
       }).
       when('/radio-streams', {
         templateUrl: 'partials/radio-streams.html',

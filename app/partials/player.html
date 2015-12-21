@@ -1,4 +1,4 @@
-<div ng-controller="PlayerCtrl" class="text-center">
+<div ng-controller="PlayerCtrl" class="text-center" ng-hide="src.audio == null">
   <!-- Track information -->
   <p>
     <span class="small">{{src.artist}}</span><br/>
@@ -14,7 +14,7 @@
   </p>
 
   <!-- Vote up or down -->
-  <p class="row">
+  <p class="row" ng-show="src.votingEnabled">
     <button class="btn col-xs-3 col-xs-offset-2 glyphicon glyphicon-thumbs-up"
             ng-class="src.votedUp ? 'btn-success' : 'btn-default'"
             ng-click="vote('up')"/>
@@ -31,6 +31,6 @@
             ng-click="skip()"/>
   </p>
 
-  <audio autoplay ng-src="{{src.audio}}" onended="skip()"/>
-
+  <audio autoplay ng-src="{{src.audio}}"/>
+  <!-- <audio autoplay ng-src="{{src.audio}}" onended="skip()"/> -->
 </div>

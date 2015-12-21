@@ -3,14 +3,14 @@ angular.module('player', [])
 .factory('playerService', function($rootScope) {
   // Used to share data between source controller and player controller
   var src = {
-    audio: '',          // audio (str) - URL of audio
-    image: '',          // image (str) - URL of image
-    name: '',           // name (str) - track name or equivalent
-    artist: '',         // artist (str) - artist name or equivalent
-    album: '',          // album (str) - album name or equivalent
-    voting: false,      // voting (boolean) - should voting be enabled
-    votedUp: false,     // votedUp (boolean) - src has been voted down
-    votedDown: false,   // votedDown (boolean) - src has been voted up
+    audio: '',            // audio (str) - URL of audio
+    image: '',            // image (str) - URL of image
+    name: '',             // name (str) - track name or equivalent
+    artist: '',           // artist (str) - artist name or equivalent
+    album: '',            // album (str) - album name or equivalent
+    votingEnabled: false, // voting (boolean) - should voting be enabled
+    votedUp: false,       // votedUp (boolean) - src has been voted down
+    votedDown: false,     // votedDown (boolean) - src has been voted up
   };
 
   var obj = {};
@@ -47,10 +47,6 @@ angular.module('player', [])
       $scope.src = playerService.getSrc();
     })
 
-    // $scope.setActiveTrack = function(track) {
-    //   $scope.activeTrack = track;
-    // };
-
     $scope.vote = function(str) {
       playerService.changeVoteStatus(str);
     };
@@ -83,14 +79,13 @@ angular.module('player', [])
 
     $scope.skip = function() {
       return;
-    //   // set activeTrack to next song in tracks
-    //   var index = $scope.tracks.indexOf($scope.activeTrack);
-    //   if (index + 1 == $scope.tracks.length)  // if last song active, skip to first
-    //     $scope.activeTrack = $scope.tracks[0]
-    //   else
-    //     $scope.activeTrack = $scope.tracks[index + 1];
+      // set activeTrack to next song in tracks
+      // var index = $scope.tracks.indexOf($scope.activeTrack);
+      // if (index + 1 == $scope.tracks.length)  // if last song active, skip to first
+      //   $scope.activeTrack = $scope.tracks[0]
+      // else
+      //   $scope.activeTrack = $scope.tracks[index + 1];
     }
-
     // document.getElementsByTagName('audio')[0].addEventListener('ended', $scope.skip);
   }
 ])
